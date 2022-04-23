@@ -2,6 +2,9 @@
 //Importo el FRAMEWORK EXPRESS manera actualizada
 import express from 'express' // express para el servidor
 
+//importo las rutas de la api 
+import {rutas} from '../routes/rutas.js'
+
 export class Servidor{
 
     constructor(){
@@ -16,24 +19,7 @@ export class Servidor{
     }
 
     atenderPeticiones(){
-        this.app.get('/api/v1/sabado', function (req, res) {
-            res.send('Hi, i am a GET')
-        })
-
-        this.app.get('/api/v1/sabado/:id', function (req, res) {
-            res.send('Hi, i am a GET')
-        })
-
-        this.app.post('/api/v1/sabado', function (req, res) {
-            res.send('Hi, i am a POST')
-        })
-
-        this.app.put('/api/v1/sabado', function (req, res) {
-            res.send('Hi, i am a PUT')
-        })
-
-        this.app.delete('/api/v1/sabado', function (req, res) {
-            res.send('Hi, i am a DELETE')
-        })
+       //llamando al archivo de rutas 
+       this.app.use('/',rutas)
     }
 }
